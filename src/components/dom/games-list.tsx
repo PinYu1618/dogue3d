@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
-import { GameCard } from './game-card'
+
+import { GameCard } from '@/components/dom/game-card'
 
 type GamesRowProps = {
   title: string

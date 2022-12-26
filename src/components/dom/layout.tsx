@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 
-import Footer from '@/components/footer'
+import Footer from '@/components/dom/footer'
 
 type LayoutProps = {
   gamePage?: boolean

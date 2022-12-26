@@ -1,9 +1,5 @@
-import RushGame from '@/components/rush'
+import RushGame from '@/components/canvas/rush'
 
 export default function RushPage() {
-  return (
-    <>
-      <RushGame />
-    </>
-  )
+  return <RushGame />
 }
