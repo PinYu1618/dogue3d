@@ -26,7 +26,8 @@
     "react-merge-refs": "^2.0.1",
     "three": "^0.148.0",
     "three-stdlib": "^2.21.1",
-    "typescript": "4.9.4"
+    "typescript": "4.9.4",
+    "zustand": "^4.1.5"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.1.1",

@@ -1,23 +1,9 @@
-import { Canvas } from '@react-three/fiber'
+import RushGame from '@/components/rush'
 
-export default function RushingBallPage() {
+export default function RushPage() {
   return (
     <>
-      <Canvas
-        shadows
-        camera={{
-          fov: 45,
-          near: 0.1,
-          far: 200,
-          position: [2.5, 4, 6]
-        }}
-      >
-        <color args={['#252731']} attach='background' />
-        <mesh>
-          <boxGeometry />
-          <meshBasicMaterial />
-        </mesh>
-      </Canvas>
+      <RushGame />
     </>
   )
 }
