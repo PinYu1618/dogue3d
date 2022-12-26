@@ -1,9 +1,3 @@
-import Container from '@/components/dom/container'
-
 export default function Footer() {
-  return (
-    <footer>
-      <Container>All Rights Reserved</Container>
-    </footer>
-  )
+  return <footer className='absolute bottom-6'>All Rights Reserved</footer>
 }

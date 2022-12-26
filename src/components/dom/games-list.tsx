@@ -1,26 +1,10 @@
-import { PropsWithChildren } from 'react'
-
 import { GameCard } from '@/components/dom/game-card'
-
-type GamesRowProps = {
-  title: string
-}
-
-function GamesRow({ title, children }: PropsWithChildren<GamesRowProps>) {
-  return (
-    <div>
-      <h2>{title}</h2>
-      <ul>{children}</ul>
-    </div>
-  )
-}
 
 export function GamesList() {
   return (
-    <div>
-      <GamesRow title='Games Row Title1'>
-        <GameCard title='Rushing ball' href='/game/rush' description='Rushing ball description' />
-      </GamesRow>
-    </div>
+    <ul id='game-list' className='flex flex-col sm:flex-row items-center gap-4'>
+      <GameCard title='Rushing ball' href='/game/rush' description='Rushing ball description' />
+      <GameCard title='Game 2' href='/' description='foo' />
+    </ul>
   )
 }
