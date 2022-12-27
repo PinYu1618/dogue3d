@@ -1,6 +1,5 @@
 import { PropsWithChildren, ReactNode } from 'react'
 
-import Container from './container'
 import Footer from './footer'
 import Topbar from './topbar'
 
@@ -12,20 +11,18 @@ function Main({ children }: MainProps) {
   return <main className='bg-lime-700 grow'>{children}</main>
 }
 
-type DomLayoutProps = {
+type LayoutProps = {
   home?: boolean
 }
 
-export default function DomLayout({ home = false, children }: PropsWithChildren<DomLayoutProps>) {
+export default function Layout({ home = false, children }: PropsWithChildren<LayoutProps>) {
   return (
-    <Container>
-      <div className='h-screen'>
-        <div className='flex flex-col h-full justify-between'>
-          <Topbar home={home} />
-          <Main>{children}</Main>
-          <Footer />
-        </div>
+    <div className='container mx-auto h-screen'>
+      <div className='flex flex-col h-full justify-between'>
+        <Topbar home={home} />
+        <Main>{children}</Main>
+        <Footer />
       </div>
-    </Container>
+    </div>
   )
 }
