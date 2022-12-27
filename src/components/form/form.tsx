@@ -6,7 +6,7 @@ type FormProps = {
 
 export function Form({ title, children }: PropsWithChildren<FormProps>) {
   return (
-    <div className='bg-red-600 py-8 flex flex-col items-center max-w-md shadow'>
+    <div className='min-w-fit max-w-md bg-teal-400 py-4 px-8'>
       <h2 className='text-2xl font-bold'>{title}</h2>
       <div className='py-12'>
         <div className='mt-8 max-w-md'>

@@ -1,8 +1,16 @@
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, ReactNode } from 'react'
 
 import Container from './container'
 import Footer from './footer'
 import Topbar from './topbar'
+
+type MainProps = {
+  children?: ReactNode
+}
+
+function Main({ children }: MainProps) {
+  return <main className='bg-lime-700 grow'>{children}</main>
+}
 
 type DomLayoutProps = {
   home?: boolean
@@ -10,14 +18,14 @@ type DomLayoutProps = {
 
 export default function DomLayout({ home = false, children }: PropsWithChildren<DomLayoutProps>) {
   return (
-    <>
-      <Container>
-        <div className='min-h-screen'>
+    <Container>
+      <div className='h-screen'>
+        <div className='flex flex-col h-full justify-between'>
           <Topbar home={home} />
-          <main>{children}</main>
+          <Main children={children} />
+          <Footer />
         </div>
-        <Footer />
-      </Container>
-    </>
+      </div>
+    </Container>
   )
 }

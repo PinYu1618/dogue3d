@@ -21,7 +21,7 @@ const games = [
 export default function Index() {
   return (
     <Layout home>
-      <div id='game-list' className='mt-40 mb-40 flex flex-col sm:flex-row items-center gap-4'>
+      <div id='game-list' className=''>
         {games.map((game) => (
           <Card title={game.title} href={game.href} description={game.desc} key={game.title} />
         ))}
