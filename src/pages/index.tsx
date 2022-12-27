@@ -1,4 +1,4 @@
-import Card from '@/components/dom/card'
+import Card from '@/components/ui/card'
 import Layout from '@/components/layout'
 
 const games = [
@@ -20,7 +20,7 @@ const games = [
 
 export default function Index() {
   return (
-    <Layout dom home>
+    <Layout home>
       <div id='game-list' className='mt-40 mb-40 flex flex-col sm:flex-row items-center gap-4'>
         {games.map((game) => (
           <Card title={game.title} href={game.href} description={game.desc} key={game.title} />

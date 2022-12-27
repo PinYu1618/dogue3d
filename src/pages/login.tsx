@@ -50,7 +50,7 @@ function Form({ title, children }: PropsWithChildren<FormProps>) {
 
 export default function LoginPage() {
   return (
-    <Layout dom>
+    <Layout>
       <div className=''>
         <Form title='Log In'>
           <FormItem label='User Name' />
