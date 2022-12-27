@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
-import Avatar from '@/components/ui/avatar'
-import Button from '@/components/ui/button'
+import Avatar from '@/components/avatar'
+import Button from '@/components/button'
 import useUser from '@/lib/useUser'
 
 function HomeTopbarRight() {
