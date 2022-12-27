@@ -1,3 +1,5 @@
+import Layout from '@/components/layout'
+
 export default function SignupPage() {
-  return <>sign up page</>
+  return <Layout dom>sign up page</Layout>
 }

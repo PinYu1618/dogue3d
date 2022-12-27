@@ -10,5 +10,6 @@ module.exports = {
         skin: '#fdf6ec'
       }
     }
-  }
+  },
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 }
