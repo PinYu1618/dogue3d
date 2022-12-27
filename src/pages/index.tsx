@@ -1,4 +1,4 @@
-import Card from '@/components/ui/card'
+import Card from '@/components/card'
 import Layout from '@/components/layout'
 
 const games = [
