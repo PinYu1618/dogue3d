@@ -1,17 +1,17 @@
-import Head from 'next/head'
+import NativeHead from 'next/head'
 
 const titleDefault = 'Dogue3d'
 const description =
   'The easiest and fastest way to create a 3D website using React Three Fiber and NextJS'
 const author = 'Author'
 
-type HeaderProps = {
+type HeadProps = {
   title?: string
 }
 
-export default function Header({ title = titleDefault }: HeaderProps) {
+export default function Head({ title = titleDefault }: HeadProps) {
   return (
-    <Head>
+    <NativeHead>
       <meta charSet='utf-8' />
       <meta name='language' content='english' />
       <meta httpEquiv='content-type' content='text/html' />
@@ -35,6 +35,6 @@ export default function Header({ title = titleDefault }: HeaderProps) {
       <meta name='viewport' content='width=device-width, minimum-scale=1, initial-scale=1.0' />
       <meta name='theme-color' content='#000' />
       <link rel='shortcut icon' href='/favicon.ico' />
-    </Head>
+    </NativeHead>
   )
 }

@@ -1,5 +1,4 @@
 import Card from '@/components/dom/card'
-import Container from '@/components/dom/container'
 
 const games = [
   {
@@ -21,16 +20,15 @@ const games = [
 export default function Index() {
   return (
     <>
-      <button className='absolute right-12 top-8 bg-[#b7cadb] px-4 py-2 rounded-md font-semibold'>
-        Login
-      </button>
-      <Container>
-        <div id='game-list' className='flex flex-col sm:flex-row items-center gap-4'>
-          {games.map((game) => (
-            <Card title={game.title} href={game.href} description={game.desc} key={game.title} />
-          ))}
-        </div>
-      </Container>
+      <button className='float-right bg-[#b7cadb] px-4 py-2 rounded-md font-semibold'>Login</button>
+      <div
+        id='game-list'
+        className='mt-40 mb-40 flex flex-col sm:flex-row items-center gap-4 bg-blue-700'
+      >
+        {games.map((game) => (
+          <Card title={game.title} href={game.href} description={game.desc} key={game.title} />
+        ))}
+      </div>
     </>
   )
 }

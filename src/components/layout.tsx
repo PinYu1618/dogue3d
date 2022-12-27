@@ -9,8 +9,14 @@ type LayoutProps = {
 export default function Layout({ inGame = false, children }: PropsWithChildren<LayoutProps>) {
   return (
     <>
-      <main>{children}</main>
-      <Footer />
+      {inGame ? (
+        { children }
+      ) : (
+        <main className='container mx-auto py-4 min-h-screen relative'>
+          {children}
+          <footer className='absolute bottom-4 md:bottom-6'>© 2022 All Rights Reserved</footer>
+        </main>
+      )}
     </>
   )
 }
