@@ -22,7 +22,7 @@ export default function DomLayout({ home = false, children }: PropsWithChildren<
       <div className='h-screen'>
         <div className='flex flex-col h-full justify-between'>
           <Topbar home={home} />
-          <Main children={children} />
+          <Main>{children}</Main>
           <Footer />
         </div>
       </div>
