@@ -1,11 +1,12 @@
 type LabelProps = {
-  label: string
+  text: string
+  htmlFor?: string
 }
 
-export function Label({ label }: LabelProps) {
+export function Label({ text, htmlFor }: LabelProps) {
   return (
-    <>
-      <label className='block'>{label}</label>
-    </>
+    <label htmlFor={htmlFor} className='block'>
+      {text}
+    </label>
   )
 }
