@@ -1,35 +1,22 @@
-import Link from 'next/link'
 import { PropsWithChildren, ReactNode } from 'react'
-import Topbar from './dom/topbar'
 
-type ButtonProps = {
-  text: string
-  href: string
-}
-
-function Button({ text, href }: ButtonProps) {
-  return (
-    <Link href={href} className='block bg-sky-400 px-4 py-2 rounded-md shadow font-bold'>
-      {text}
-    </Link>
-  )
-}
+import Container from '@/components/dom/container'
+import Footer from '@/components/dom/footer'
+import Topbar from '@/components/dom/topbar'
 
 type DomLayoutProps = {
   children?: ReactNode
+  home?: boolean
   loggedIn?: boolean
 }
 
-function DomLayout({ children, loggedIn = false }: DomLayoutProps) {
+function DomLayout({ children, home = false }: DomLayoutProps) {
   return (
-    <main className='container mx-auto py-4 min-h-screen relative'>
-      <Topbar right={loggedIn ? null : <Button text='Login' href='/login' />} />
+    <Container>
+      <Topbar home={home} />
       {children}
-      <footer className='absolute bottom-4 md:bottom-6 w-full'>
-        <hr className='mb-4' />
-        <p>© 2022 All Rights Reserved</p>
-      </footer>
-    </main>
+      <Footer />
+    </Container>
   )
 }
 
@@ -43,8 +30,21 @@ function CanvasLayout({ children }: CanvasLayoutProps) {
 
 type LayoutProps = {
   dom?: boolean
+  home?: boolean
 }
 
-export default function Layout({ dom = false, children }: PropsWithChildren<LayoutProps>) {
-  return <>{dom ? <DomLayout>{children}</DomLayout> : <CanvasLayout>{children}</CanvasLayout>}</>
+export default function Layout({
+  dom = false,
+  home = false,
+  children
+}: PropsWithChildren<LayoutProps>) {
+  return (
+    <>
+      {dom ? (
+        <DomLayout home={home}>{children}</DomLayout>
+      ) : (
+        <CanvasLayout>{children}</CanvasLayout>
+      )}
+    </>
+  )
 }
