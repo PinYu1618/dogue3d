@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
 
 import Button from '@/components/dom/button'
+import useUser from '@/lib/useUser'
+import Avatar from './avatar'
 
-function HomeTopbar() {
-  return (
-    <>
-      <Button text='Login' href='/login' />
-    </>
-  )
+function HomeTopbarRight() {
+  const { loggedIn } = useUser()
+
+  return <>{loggedIn ? <Avatar /> : <Button text='Login' href='/login' />}</>
 }
 
 type TopbarProps = {
@@ -22,7 +22,7 @@ export default function Topbar({ home }: TopbarProps) {
         <h2 className='font-bold text-4xl'>
           Dogue<span className='text-base font-normal'>3d</span>
         </h2>
-        {home ? <HomeTopbar /> : null}
+        {home ? <HomeTopbarRight /> : null}
       </div>
       <hr className='' />
     </div>
