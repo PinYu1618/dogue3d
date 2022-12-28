@@ -7,10 +7,14 @@ export default function Index() {
     <Layout>
       <div className='flex flex-col sm:flex-row bg-red-700 h-full'>
         <div className='self-center basis-3/5'>
-          <Logo size='large' />
+          <div className='mx-auto w-fit'>
+            <Logo size='large' />
+          </div>
         </div>
         <div className='basis-2/5 self-center'>
-          <LoginForm />
+          <div>
+            <LoginForm />
+          </div>
         </div>
       </div>
     </Layout>
