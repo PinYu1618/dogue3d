@@ -16,7 +16,7 @@ export default function Card({
   thumbnail = defaultThumbnail
 }: CardProps) {
   return (
-    <div className='w-64 h-72 bg-beige rounded-lg shadow-md font-sans'>
+    <div className='w-64 h-72 rounded-lg shadow-md font-sans'>
       <Link href={href}>
         <div className='relative w-64 h-44'>
           <img src={thumbnail} alt='' className='w-full h-full object-cover rounded-t-lg' />

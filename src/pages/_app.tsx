@@ -1,4 +1,6 @@
 import type { AppProps } from 'next/app'
+
+//^TODO: use custom font family (This font is very cute)
 import localFont from '@next/font/local'
 
 import { useCreateStore, Provider } from '@/lib/store'

@@ -1,15 +1,8 @@
-import { PropsWithChildren, ReactNode } from 'react'
+import { PropsWithChildren } from 'react'
 
 import Footer from './footer'
-import Topbar from './topbar'
-
-type MainProps = {
-  children?: ReactNode
-}
-
-function Main({ children }: MainProps) {
-  return <main className=''>{children}</main>
-}
+import Header from './header'
+import Main from './main'
 
 type LayoutProps = {
   home?: boolean
@@ -19,7 +12,7 @@ export default function Layout({ home = false, children }: PropsWithChildren<Lay
   return (
     <div className='container mx-auto h-screen'>
       <div className='flex flex-col h-full justify-between'>
-        <Topbar home={home} />
+        <Header home={home} />
         <Main>{children}</Main>
         <Footer />
       </div>

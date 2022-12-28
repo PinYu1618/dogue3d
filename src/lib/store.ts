@@ -1,3 +1,5 @@
+/* Global state that shared among all pages */
+
 import { useLayoutEffect } from 'react'
 import create, { UseBoundStore } from 'zustand'
 import createContext from 'zustand/context'
@@ -43,9 +45,9 @@ export const initializeStore = (preloadedState = {}) => {
           count: get().count - 1
         })
       },
-      reset: () => {
+      logout: () => {
         set({
-          count: getDefaultInitialState().count
+          user: getDefaultInitialState().user
         })
       }
     }))
@@ -53,11 +55,12 @@ export const initializeStore = (preloadedState = {}) => {
 }
 
 export const useCreateStore = (serverInitialState: InitialState) => {
-  // For SSR & SSG, always use a new store.
+  /* Server side code: For SSR & SSG, always use a new store. */
   if (typeof window === 'undefined') {
     return () => initializeStore(serverInitialState)
   }
 
+  /* Client side code: Next.js always re-uses same store regardless of whether page is a SSR or SSG or CSR */
   const isReusingStore = Boolean(store)
   store = store ?? initializeStore(serverInitialState)
   // And if initialState changes, then merge states in the next render cycle.
