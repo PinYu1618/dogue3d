@@ -8,7 +8,7 @@ type MainProps = {
 }
 
 function Main({ children }: MainProps) {
-  return <main className='grow'>{children}</main>
+  return <main className=''>{children}</main>
 }
 
 type LayoutProps = {
