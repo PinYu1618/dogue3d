@@ -35,8 +35,12 @@ export default function LoginForm() {
         />
         <Label htmlFor='pswrd' text='Password' />
         <Input type='password' required value={pswrd} onChange={(e) => setPswrd(e.target.value)} />
-        <button type='submit'>Submit</button>
-        <Link href='/signup'>Don&apos;t have an account ?</Link>
+        <button type='submit' className='bg-green-50'>
+          Submit
+        </button>
+        <Link href='/signup' className='mt-5 text-sm'>
+          Don&apos;t have an account ?
+        </Link>
       </Form>
     </>
   )
