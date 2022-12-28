@@ -6,7 +6,7 @@ export default function SignupPage() {
   return (
     <Layout>
       <div className='h-full container flex flex-col content-center justify-center'>
-        <div className='mx-auto'>
+        <div className='m-auto'>
           <Form title='Sign Up'>
             <Label text='User Name' />
             <Input type='text' required />

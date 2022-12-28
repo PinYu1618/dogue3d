@@ -9,7 +9,9 @@ type LogoProps = {
 export default function Logo({ size }: LogoProps) {
   return (
     <>
-      <div className={'bg-cyan-600 text-center h-24 w-24 sm:h-96 sm:w-96'}>D</div>
+      <div className={'bg-cyan-600 text-center h-24 w-24 sm:h-96 sm:w-96 rounded-full'}>
+        <div className=''>D</div>
+      </div>
     </>
   )
 }

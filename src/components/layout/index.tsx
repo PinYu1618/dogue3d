@@ -8,7 +8,7 @@ type MainProps = {
 }
 
 function Main({ children }: MainProps) {
-  return <main className='bg-lime-700 grow'>{children}</main>
+  return <main className='grow'>{children}</main>
 }
 
 type LayoutProps = {
