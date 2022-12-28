@@ -2,12 +2,12 @@ import { ReactNode } from 'react'
 
 import Avatar from '@/components/avatar'
 import Button from '@/components/button'
-import useUser from '@/lib/useUser'
+import useUser from '@/hooks/useUser'
 
 function HomeTopbarRight() {
-  const { loggedIn } = useUser()
+  const { user } = useUser()
 
-  return <>{loggedIn ? <Avatar /> : <Button text='Login' href='/login' />}</>
+  return <>{user ? <Avatar /> : null}</>
 }
 
 type TopbarProps = {

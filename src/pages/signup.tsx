@@ -8,10 +8,10 @@ export default function SignupPage() {
       <div className='h-full container flex flex-col content-center justify-center'>
         <div className='mx-auto'>
           <Form title='Sign Up'>
-            <Label label='User Name' />
-            <Input />
-            <Label label='Password' />
-            <Input />
+            <Label text='User Name' />
+            <Input type='text' required />
+            <Label text='Password' />
+            <Input type='password' required />
             <Button text='Login' href='/api/user' />
           </Form>
         </div>

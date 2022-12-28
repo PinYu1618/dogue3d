@@ -11,6 +11,7 @@ type UseStoreState = typeof initializeStore extends (...args: never) => UseBound
   : never
 
 const getDefaultInitialState = () => ({
+  user: null,
   lastUpdate: Date.now(),
   light: false,
   count: 0
@@ -58,7 +59,6 @@ export const useCreateStore = (serverInitialState: InitialState) => {
   }
 
   const isReusingStore = Boolean(store)
-  // For CSR, always re-use same store.
   store = store ?? initializeStore(serverInitialState)
   // And if initialState changes, then merge states in the next render cycle.
   //
@@ -66,19 +66,8 @@ export const useCreateStore = (serverInitialState: InitialState) => {
   // is ignorable as this code runs in same order in a given environment
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useLayoutEffect(() => {
-    // serverInitialState is undefined for CSR pages. It is up to you if you want to reset
-    // states on CSR page navigation or not. I have chosen not to, but if you choose to,
-    // then add `serverInitialState = getDefaultInitialState()` here.
     if (serverInitialState && isReusingStore) {
-      store.setState(
-        {
-          // re-use functions from existing store
-          ...store.getState(),
-          // but reset all other properties.
-          ...serverInitialState
-        },
-        true // replace states, rather than shallow merging
-      )
+      store.setState({ ...store.getState(), ...serverInitialState }, true)
     }
   })
 
