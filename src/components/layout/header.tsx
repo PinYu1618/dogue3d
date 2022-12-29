@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import Avatar from '@/components/avatar'
-import { useStore } from '@/lib/store'
+import { useUser } from '@/hooks/useUser'
 
 function Left() {
   return (
@@ -16,7 +16,7 @@ function Left() {
 }
 
 function Right() {
-  const { user } = useStore()
+  const user = useUser((state) => state.user)
 
   return <>{user ? <Avatar /> : null}</>
 }

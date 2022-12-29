@@ -2,25 +2,21 @@ import Link from 'next/link'
 import { Input } from '@/components/form'
 import { FormEvent, useState } from 'react'
 import { Form, Label } from './form'
+import { useUser } from '@/hooks/useUser'
 
 export default function LoginForm() {
+  const login = useUser((state) => state.login)
+
   const [userName, setUserName] = useState('')
   const [pswrd, setPswrd] = useState('')
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const data = { userName, pswrd }
-    const endpoint = '/api/user'
-    const options = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+    if (!userName || !pswrd) {
+      alert('Missing Name or Password')
+      return
     }
-    const response = await fetch(endpoint, options)
-    // Get the response data from server as JSON.
-    // If server returns the name submitted, that means the form works.
-    const result = await response.json()
-    alert(`Is this your name: ${result.data}`)
+    login(userName, pswrd)
   }
   return (
     <>
