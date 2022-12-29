@@ -1,5 +1,5 @@
-import RushGame from '@/components/game/rush'
-import Introduction from '@/components/game/rush/introduction'
+import RushGame from '@/components/rush-game'
+import Introduction from '@/components/rush-game/introduction'
 import { KeyboardControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
@@ -25,7 +25,6 @@ export default function RushPage() {
             position: [2.5, 4, 6]
           }}
         >
-          <color args={['black']} attach='background' />
           <Suspense fallback={null}>
             <RushGame />
           </Suspense>

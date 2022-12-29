@@ -7,11 +7,12 @@ import WetGround from './wet-ground'
 export default function Game() {
   return (
     <>
+      <color args={['black']} attach='background' />
+
       <Physics>
         <Level />
         <Lights />
         <Player />
-        {/*<WetGround rotation={[-Math.PI / 2, 0, Math.PI / 2]} position-y={-0.8} />*/}
       </Physics>
     </>
   )
