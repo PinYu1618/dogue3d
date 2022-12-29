@@ -11,7 +11,7 @@ export default function Index() {
 
   useEffect(() => {
     if (user !== null) {
-      router.push(`/user/${user.name}`)
+      router.push(`/games`)
     }
   }, [user])
 

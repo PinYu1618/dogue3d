@@ -20,7 +20,7 @@ const games = [
   }
 ]
 
-export default function GamesPage() {
+export default function Index() {
   return (
     <Layout>
       <div id='game-list' className=''>

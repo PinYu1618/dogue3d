@@ -28,7 +28,7 @@ export default function SignupPage() {
 
   useEffect(() => {
     if (user !== null) {
-      router.push(`/user/${user.name}`)
+      router.push(`/games`)
     }
   }, [user])
 
