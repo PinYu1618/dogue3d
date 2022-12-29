@@ -2,11 +2,13 @@ import Button from '@/components/button'
 import { Form, Input, Label } from '@/components/form'
 import Layout from '@/components/layout'
 import { useUser } from '@/hooks/useUser'
+import { useRouter } from 'next/router'
 import { FormEvent, useEffect, useState } from 'react'
 
 export default function SignupPage() {
   const user = useUser((state) => state.user)
   const signup = useUser((state) => state.signup)
+  const router = useRouter()
 
   const [userName, setUserName] = useState('')
   const [pswrd, setPswrd] = useState('')
@@ -26,8 +28,7 @@ export default function SignupPage() {
 
   useEffect(() => {
     if (user !== null) {
-      //^TODO: redirect to /games/[user]
-      console.log(user.name)
+      router.push(`/user/${user.name}`)
     }
   }, [user])
 
