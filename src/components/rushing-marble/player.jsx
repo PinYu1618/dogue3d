@@ -7,15 +7,20 @@ import { useMarbleGame } from '@/stores/useMarbleGame'
 
 export default function Player() {
   const body = useRef()
+
   const [subscribeKeys, getKeys] = useKeyboardControls()
   const { rapier, world } = useRapier()
   const rapierWorld = world.raw()
+
+  const [blocksCount, start, end, restart] = useMarbleGame((state) => [
+    state.blocksCount,
+    state.start,
+    state.end,
+    state.restart
+  ])
+
   const [smoothedCameraPosition] = useState(() => new THREE.Vector3(10, 10, 10))
   const [smoothedCameraTarget] = useState(() => new THREE.Vector3())
-  const start = useMarbleGame((state) => state.start)
-  const end = useMarbleGame((state) => state.end)
-  const restart = useMarbleGame((state) => state.restart)
-  const blocksCount = useMarbleGame((state) => state.blocksCount)
 
   const jump = () => {
     const origin = body.current.translation()
@@ -65,7 +70,7 @@ export default function Player() {
     /**
      * Controls
      */
-    const { forward, backward, leftward, rightward } = getKeys()
+    const { forward, back, left, right } = getKeys()
 
     const impulse = { x: 0, y: 0, z: 0 }
     const torque = { x: 0, y: 0, z: 0 }
@@ -78,17 +83,17 @@ export default function Player() {
       torque.x -= torqueStrength
     }
 
-    if (rightward) {
+    if (right) {
       impulse.x += impulseStrength
       torque.z -= torqueStrength
     }
 
-    if (backward) {
+    if (back) {
       impulse.z += impulseStrength
       torque.x += torqueStrength
     }
 
-    if (leftward) {
+    if (left) {
       impulse.x -= impulseStrength
       torque.z += torqueStrength
     }
