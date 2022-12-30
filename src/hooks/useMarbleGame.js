@@ -1,7 +1,7 @@
 import create from 'zustand'
 import { subscribeWithSelector } from 'zustand/middleware'
 
-export default create(
+export const useMarbleGame = create(
   subscribeWithSelector((set) => {
     return {
       blocksCount: 10,

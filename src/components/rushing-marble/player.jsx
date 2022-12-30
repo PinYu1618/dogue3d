@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { useKeyboardControls } from '@react-three/drei'
 import { useState, useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import useGame from '@/hooks/useRushGame'
+import { useMarbleGame } from '@/hooks/useMarbleGame'
 
 export default function Player() {
   const body = useRef()
@@ -12,10 +12,10 @@ export default function Player() {
   const rapierWorld = world.raw()
   const [smoothedCameraPosition] = useState(() => new THREE.Vector3(10, 10, 10))
   const [smoothedCameraTarget] = useState(() => new THREE.Vector3())
-  const start = useGame((state) => state.start)
-  const end = useGame((state) => state.end)
-  const restart = useGame((state) => state.restart)
-  const blocksCount = useGame((state) => state.blocksCount)
+  const start = useMarbleGame((state) => state.start)
+  const end = useMarbleGame((state) => state.end)
+  const restart = useMarbleGame((state) => state.restart)
+  const blocksCount = useMarbleGame((state) => state.blocksCount)
 
   const jump = () => {
     const origin = body.current.translation()
@@ -36,7 +36,7 @@ export default function Player() {
   }
 
   useEffect(() => {
-    const unsubscribeReset = useGame.subscribe(
+    const unsubscribeReset = useMarbleGame.subscribe(
       (state) => state.phase,
       (value) => {
         if (value === 'ready') reset()

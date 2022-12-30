@@ -10,7 +10,7 @@ const games = [
     desc: 'Game 1 description'
   },
   {
-    title: 'Rushing ball',
+    title: 'Rushing Marble',
     href: '/game/rush',
     desc: 'Rushing ball description'
   },

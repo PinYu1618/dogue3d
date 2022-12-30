@@ -1,13 +1,13 @@
 import { useKeyboardControls } from '@react-three/drei'
-import useGame from '@/hooks/useRushGame.js'
+import { useMarbleGame } from '@/hooks/useMarbleGame.js'
 import { useEffect, useRef } from 'react'
 import { addEffect } from '@react-three/fiber'
 
 export default function Introduction() {
   const time = useRef()
 
-  const restart = useGame((state) => state.restart)
-  const phase = useGame((state) => state.phase)
+  const restart = useMarbleGame((state) => state.restart)
+  const phase = useMarbleGame((state) => state.phase)
 
   const forward = useKeyboardControls((state) => state.forward)
   const backward = useKeyboardControls((state) => state.backward)
@@ -17,7 +17,7 @@ export default function Introduction() {
 
   useEffect(() => {
     const unsubscribeEffect = addEffect(() => {
-      const state = useGame.getState()
+      const state = useMarbleGame.getState()
 
       let elapsedTime = 0
 

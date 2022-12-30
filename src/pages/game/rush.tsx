@@ -1,10 +1,10 @@
-import RushGame from '@/components/rush-game'
-import Introduction from '@/components/rush-game/introduction'
+import { MarbleGame } from '@/components/rushing-marble'
+import Introduction from '@/components/rushing-marble/introduction'
 import { KeyboardControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 
-export default function RushPage() {
+export default function RushingMarble() {
   return (
     <>
       <KeyboardControls
@@ -26,7 +26,7 @@ export default function RushPage() {
           }}
         >
           <Suspense fallback={null}>
-            <RushGame />
+            <MarbleGame />
           </Suspense>
         </Canvas>
         <Introduction />
