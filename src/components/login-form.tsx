@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Input } from '@/components/form'
 import { FormEvent, useState } from 'react'
 import { Form, Label } from './form'
-import { useUser } from '@/hooks/useUser'
+import { useUser } from '@/stores/useUser'
 
 export default function LoginForm() {
   const login = useUser((state) => state.login)

@@ -1,7 +1,7 @@
 import Layout from '@/components/layout'
 import LoginForm from '@/components/login-form'
 import Logo from '@/components/logo'
-import { useUser } from '@/hooks/useUser'
+import { useUser } from '@/stores/useUser'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 

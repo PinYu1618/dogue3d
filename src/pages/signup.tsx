@@ -1,7 +1,7 @@
 import Button from '@/components/button'
 import { Form, Input, Label } from '@/components/form'
 import Layout from '@/components/layout'
-import { useUser } from '@/hooks/useUser'
+import { useUser } from '@/stores/useUser'
 import { useRouter } from 'next/router'
 import { FormEvent, useEffect, useState } from 'react'
 

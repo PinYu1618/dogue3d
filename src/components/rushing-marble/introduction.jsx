@@ -1,5 +1,5 @@
 import { useKeyboardControls } from '@react-three/drei'
-import { useMarbleGame } from '@/hooks/useMarbleGame.js'
+import { useMarbleGame } from '@/stores/useMarbleGame.js'
 import { useEffect, useRef } from 'react'
 import { addEffect } from '@react-three/fiber'
 

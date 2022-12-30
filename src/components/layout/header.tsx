@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import Avatar from '@/components/avatar'
-import { useUser } from '@/hooks/useUser'
+import { useUser } from '@/stores/useUser'
 
 function Left() {
   return (

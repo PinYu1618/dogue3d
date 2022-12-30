@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { useKeyboardControls } from '@react-three/drei'
 import { useState, useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import { useMarbleGame } from '@/hooks/useMarbleGame'
+import { useMarbleGame } from '@/stores/useMarbleGame'
 
 export default function Player() {
   const body = useRef()
