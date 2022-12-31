@@ -1,5 +1,5 @@
-import { Scene } from '@/components/marble-game'
-import Introduction from '@/components/marble-game/introduction'
+import { Scene } from '@/components/marble'
+import Introduction from '@/components/marble/introduction'
 import { KeyboardControls, KeyboardControlsEntry } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Debug, Physics } from '@react-three/rapier'

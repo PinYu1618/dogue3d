@@ -2,7 +2,6 @@ import { Box } from '@react-three/drei'
 import { GroupProps, useFrame } from '@react-three/fiber'
 import { RigidBody, RigidBodyApi } from '@react-three/rapier'
 import { useRef, useState } from 'react'
-import { Vector3 } from 'three'
 
 export function Axe(props: GroupProps) {
   const axe = useRef<RigidBodyApi>(null)

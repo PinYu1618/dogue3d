@@ -11,12 +11,12 @@ const games = [
   },
   {
     title: 'Rushing Marble',
-    href: '/game/rush',
+    href: '/game/marble',
     desc: 'Rushing ball description'
   },
   {
-    title: 'Game 3',
-    href: '/'
+    title: 'Mini Car Racing',
+    href: '/game/racing'
   }
 ]
 

@@ -3,18 +3,10 @@ import { RigidBody } from '@react-three/rapier'
 import { useMemo } from 'react'
 import { Float, Text } from '@react-three/drei'
 import { Axe, Limbo, Spinner } from './obstacles'
-import { WetGround } from './wet-ground'
+import { Ground } from './ground'
 import { Wall } from './wall'
 
 THREE.ColorManagement.legacyMode = false
-
-const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
-
-const floor1Material = new THREE.MeshStandardMaterial({
-  color: '#111111',
-  metalness: 0,
-  roughness: 0
-})
 
 export function BlockStart({ position = [0, 0, 0] }) {
   return (
@@ -32,13 +24,6 @@ export function BlockStart({ position = [0, 0, 0] }) {
           <meshBasicMaterial toneMapped={false} />
         </Text>
       </Float>
-      <mesh
-        geometry={boxGeometry}
-        material={floor1Material}
-        position={[0, -0.1, 0]}
-        scale={[4, 0.2, 4]}
-        receiveShadow
-      />
     </group>
   )
 }
@@ -50,13 +35,6 @@ export function BlockEnd({ position = [0, 0, 0] }) {
         FINISH
         <meshBasicMaterial toneMapped={false} />
       </Text>
-      <mesh
-        geometry={boxGeometry}
-        material={floor1Material}
-        position={[0, 0, 0]}
-        scale={[4, 0.2, 4]}
-        receiveShadow
-      />
       <RigidBody
         type='fixed'
         colliders='hull'
@@ -93,7 +71,7 @@ export function Level({ count = 5, types = [Spinner, Axe, Limbo], seed = 0 }) {
       <BlockEnd position={[0, 0, -(count + 1) * 4]} />
 
       <Wall length={count + 2} />
-      {/*<WetGround />*/}
+      <Ground length={count + 2} />
     </>
   )
 }
