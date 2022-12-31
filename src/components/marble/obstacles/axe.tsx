@@ -1,9 +1,13 @@
 import { Box } from '@react-three/drei'
-import { GroupProps, useFrame } from '@react-three/fiber'
+import { useFrame } from '@react-three/fiber'
 import { RigidBody, RigidBodyApi } from '@react-three/rapier'
 import { useRef, useState } from 'react'
 
-export function Axe(props: GroupProps) {
+type AxeProps = {
+  position?: [x: number, y: number, z: number]
+}
+
+export function Axe({ position = [0, 0, 0] }: AxeProps) {
   const axe = useRef<RigidBodyApi>(null)
 
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2)
@@ -13,16 +17,16 @@ export function Axe(props: GroupProps) {
       const time = state.clock.getElapsedTime()
 
       const x = Math.sin(time + timeOffset) * 1.25
-      //axe.current.setNextKinematicTranslation({
-      //  x: pos.x + x,
-      //  y: pos.y + 0.75,
-      //  z: pos.z
-      //})
+      axe.current.setNextKinematicTranslation({
+        x: position[0] + x,
+        y: position[1] + 0.75,
+        z: position[2]
+      })
     }
   })
 
   return (
-    <group {...props}>
+    <group position={position}>
       <RigidBody
         ref={axe}
         type='kinematicPosition'
