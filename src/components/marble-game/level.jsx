@@ -70,34 +70,7 @@ export function BlockEnd({ position = [0, 0, 0] }) {
   )
 }
 
-export function BlockSpinner({ position = [0, 0, 0] }) {
-  return (
-    <group position={position}>
-      <WetGround />
-      <Spinner lift={0.3} />
-    </group>
-  )
-}
-
-export function BlockLimbo({ position = [0, 0, 0] }) {
-  return (
-    <group position={position}>
-      <WetGround />
-      <Limbo pos={position} lift={0.3} />
-    </group>
-  )
-}
-
-export function BlockAxe({ position = [0, 0, 0] }) {
-  return (
-    <group position={position}>
-      <WetGround />
-      <Axe pos={position} />
-    </group>
-  )
-}
-
-export function Level({ count = 5, types = [BlockSpinner, BlockAxe, BlockLimbo], seed = 0 }) {
+export function Level({ count = 5, types = [Spinner, Axe, Limbo], seed = 0 }) {
   const blocks = useMemo(() => {
     const blocks = []
 
@@ -120,6 +93,7 @@ export function Level({ count = 5, types = [BlockSpinner, BlockAxe, BlockLimbo],
       <BlockEnd position={[0, 0, -(count + 1) * 4]} />
 
       <Wall length={count + 2} />
+      {/*<WetGround />*/}
     </>
   )
 }

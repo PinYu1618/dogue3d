@@ -1,8 +1,9 @@
-import { MarbleGame } from '@/components/rushing-marble'
-import Introduction from '@/components/rushing-marble/introduction'
+import { Scene } from '@/components/marble-game'
+import Introduction from '@/components/marble-game/introduction'
 import { KeyboardControls, KeyboardControlsEntry } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { Suspense, useMemo } from 'react'
+import { Debug, Physics } from '@react-three/rapier'
+import { useMemo } from 'react'
 
 enum Controls {
   forward = 'forward',
@@ -28,7 +29,7 @@ export default function RushingMarble() {
     <>
       <KeyboardControls map={map}>
         <Canvas
-          shadows
+          //shadows
           camera={{
             fov: 45,
             near: 0.1,
@@ -36,9 +37,10 @@ export default function RushingMarble() {
             position: [2.5, 4, 6]
           }}
         >
-          <Suspense fallback={null}>
-            <MarbleGame />
-          </Suspense>
+          <Physics>
+            <Debug />
+            <Scene />
+          </Physics>
         </Canvas>
         <Introduction />
       </KeyboardControls>
