@@ -2,9 +2,9 @@ import { KeyboardControls, KeyboardControlsEntry } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { useMemo } from 'react'
 
-import { Controls, Introduction, World } from '@/components/marble'
+import { Controls, Ui, World } from '@/components/marble-racing'
 
-export default function RushingMarble() {
+export default function MarbleRacing() {
   const map = useMemo<KeyboardControlsEntry<Controls>[]>(
     () => [
       { name: Controls.forward, keys: ['ArrowUp', 'w', 'W'] },
@@ -30,7 +30,7 @@ export default function RushingMarble() {
         >
           <World />
         </Canvas>
-        <Introduction />
+        <Ui />
       </KeyboardControls>
     </>
   )

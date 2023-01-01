@@ -1,4 +1,4 @@
-import { Scene } from '@/components/racing'
+import { Scene } from '@/components/car-racing'
 import { Canvas } from '@react-three/fiber'
 
 export default function CarRacingPage() {

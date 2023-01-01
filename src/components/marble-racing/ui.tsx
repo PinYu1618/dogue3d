@@ -1,13 +1,14 @@
-import { useKeyboardControls } from '@react-three/drei'
-import { useMarbleGame } from '@/stores/useMarbleGame.js'
 import { useEffect, useRef } from 'react'
 import { addEffect } from '@react-three/fiber'
+import { useKeyboardControls } from '@react-three/drei'
 
-export function Introduction() {
+import { useMarbleRacing } from '@/stores/useMarbleRacing'
+
+export function Ui() {
   const time = useRef()
 
-  const restart = useMarbleGame((state) => state.restart)
-  const phase = useMarbleGame((state) => state.phase)
+  const restart = useMarbleRacing((state) => state.restart)
+  const phase = useMarbleRacing((state) => state.phase)
 
   const forward = useKeyboardControls((state) => state.forward)
   const backward = useKeyboardControls((state) => state.backward)
@@ -15,9 +16,9 @@ export function Introduction() {
   const rightward = useKeyboardControls((state) => state.rightward)
   const jump = useKeyboardControls((state) => state.jump)
 
-  useEffect(() => {
+  /*useEffect(() => {
     const unsubscribeEffect = addEffect(() => {
-      const state = useMarbleGame.getState()
+      const state = useMarbleRacing.getState()
 
       let elapsedTime = 0
 
@@ -33,14 +34,12 @@ export function Introduction() {
     return () => {
       unsubscribeEffect()
     }
-  }, [])
+  }, [])*/
 
   return (
     <div className='interface'>
       {/* Time */}
-      <div ref={time} className='time'>
-        0.00
-      </div>
+      <div className='time'>0.00</div>
 
       {/* Restart */}
       {phase === 'ended' && (
