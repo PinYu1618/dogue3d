@@ -1,7 +1,8 @@
 import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei'
+
 import { Suspense } from 'react'
-import { Car } from './car'
 import { Ground } from './ground'
+import { Car } from './car'
 import { Track } from './track'
 
 export function Scene() {
