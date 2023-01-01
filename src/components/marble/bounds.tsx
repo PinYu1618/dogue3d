@@ -1,7 +1,7 @@
 import { Box } from '@react-three/drei'
 import { CuboidCollider, RigidBody } from '@react-three/rapier'
 
-export function Wall({ length = 1 }) {
+export function Bounds({ length = 1 }) {
   return (
     <group>
       <RigidBody type='fixed' restitution={0.2} friction={0}>

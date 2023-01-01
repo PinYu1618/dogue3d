@@ -4,11 +4,15 @@ import { useMemo } from 'react'
 import { Float, Text } from '@react-three/drei'
 import { Axe, Limbo, Spinner } from './obstacles'
 import { Ground } from './ground'
-import { Wall } from './wall'
+import { Bounds } from './bounds'
 
 THREE.ColorManagement.legacyMode = false
 
-export function BlockStart({ position = [0, 0, 0] }) {
+type StartProps = {
+  position?: [x: number, y: number, z: number]
+}
+
+function Start({ position = [0, 0, 0] }: StartProps) {
   return (
     <group position={position}>
       <Float floatIntensity={0.25} rotationIntensity={0.25}>
@@ -28,7 +32,11 @@ export function BlockStart({ position = [0, 0, 0] }) {
   )
 }
 
-export function BlockEnd({ position = [0, 0, 0] }) {
+type EndProps = {
+  position?: [x: number, y: number, z: number]
+}
+
+function End({ position = [0, 0, 0] }: EndProps) {
   return (
     <group position={position}>
       <Text scale={8} position={[0, 2.25, 2]}>
@@ -49,29 +57,29 @@ export function BlockEnd({ position = [0, 0, 0] }) {
 }
 
 export function Level({ count = 5, types = [Spinner, Axe, Limbo], seed = 0 }) {
-  const blocks = useMemo(() => {
-    const blocks = []
+  const obstacles = useMemo(() => {
+    const obstacles = []
 
     for (let i = 0; i < count; i++) {
       const type = types[Math.floor(Math.random() * types.length)]
-      blocks.push(type)
+      obstacles.push(type)
     }
 
-    return blocks
+    return obstacles
   }, [count, types, seed])
 
   return (
     <>
-      <BlockStart position={[0, 0, 0]} />
+      <Start position={[0, 0, 0]} />
 
-      {blocks.map((Block, index) => (
-        <Block key={index} position={[0, 0, -(index + 1) * 4]} />
+      {obstacles.map((Obstacle, index) => (
+        <Obstacle key={index} position={[0, 0, -(index + 1) * 4]} />
       ))}
 
-      <BlockEnd position={[0, 0, -(count + 1) * 4]} />
+      <End position={[0, 0, -(count + 1) * 4]} />
 
-      <Wall length={count + 2} />
       <Ground length={count + 2} />
+      <Bounds length={count + 2} />
     </>
   )
 }

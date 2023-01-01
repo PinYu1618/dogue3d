@@ -1,10 +1,14 @@
 import { Box } from '@react-three/drei'
-import { GroupProps, useFrame } from '@react-three/fiber'
+import { useFrame } from '@react-three/fiber'
 import { RigidBody, RigidBodyApi } from '@react-three/rapier'
 import { useRef, useState } from 'react'
 import { Euler, Quaternion } from 'three'
 
-export function Spinner(props: GroupProps) {
+type SpinnerProps = {
+  position?: [x: number, y: number, z: number]
+}
+
+export function Spinner({ position = [0, 0, 0] }: SpinnerProps) {
   const spinner = useRef<RigidBodyApi>(null)
   const [speed] = useState(() => (Math.random() + 0.2) * (Math.random() < 0.5 ? -1 : 1))
 
@@ -18,7 +22,7 @@ export function Spinner(props: GroupProps) {
   })
 
   return (
-    <group {...props}>
+    <group position={position}>
       <RigidBody
         ref={spinner}
         position={[0, 0.3, 0]}
