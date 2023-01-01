@@ -34,7 +34,9 @@ export function Axe({ position = [0, 0, 0] }: AxeProps) {
         restitution={0.2}
         friction={0}
       >
-        <Box scale={[1.5, 1.5, 0.3]} castShadow receiveShadow></Box>
+        <Box scale={[1.5, 1.5, 0.3]}>
+          <meshBasicMaterial toneMapped={false} />
+        </Box>
       </RigidBody>
     </group>
   )

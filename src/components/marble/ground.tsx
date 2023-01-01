@@ -9,7 +9,7 @@ export function Ground({ length = 1 }) {
   return (
     <>
       <mesh
-        position={[0, 0, -(length * 2) + 2]}
+        position={[0, -0.1, -(length * 2) + 2]}
         rotation={[-Math.PI / 2, 0, 0]}
         scale={[4, 4 * length, 1]}
       >

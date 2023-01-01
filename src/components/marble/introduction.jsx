@@ -3,7 +3,7 @@ import { useMarbleGame } from '@/stores/useMarbleGame.js'
 import { useEffect, useRef } from 'react'
 import { addEffect } from '@react-three/fiber'
 
-export default function Introduction() {
+export function Introduction() {
   const time = useRef()
 
   const restart = useMarbleGame((state) => state.restart)

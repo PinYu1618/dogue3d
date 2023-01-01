@@ -1,17 +1,8 @@
-import { Scene } from '@/components/marble'
-import Introduction from '@/components/marble/introduction'
 import { KeyboardControls, KeyboardControlsEntry } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { Debug, Physics } from '@react-three/rapier'
 import { useMemo } from 'react'
 
-enum Controls {
-  forward = 'forward',
-  back = 'back',
-  left = 'left',
-  right = 'right',
-  jump = 'jump'
-}
+import { Controls, Introduction, World } from '@/components/marble'
 
 export default function RushingMarble() {
   const map = useMemo<KeyboardControlsEntry<Controls>[]>(
@@ -37,10 +28,7 @@ export default function RushingMarble() {
             position: [2.5, 4, 6]
           }}
         >
-          <Physics>
-            <Debug />
-            <Scene />
-          </Physics>
+          <World />
         </Canvas>
         <Introduction />
       </KeyboardControls>

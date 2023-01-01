@@ -1,3 +1,3 @@
-export * from './axe'
-export * from './limbo'
-export * from './spinner'
+export { Axe } from './axe'
+export { Limbo } from './limbo'
+export { Spinner } from './spinner'

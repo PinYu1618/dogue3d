@@ -6,19 +6,15 @@ export function Bounds({ length = 1 }) {
     <group>
       <RigidBody type='fixed' restitution={0.2} friction={0}>
         {/* right wall */}
-        <Box position={[2.15, 0.75, -(length * 2) + 2]} scale={[0.3, 1.5, 4 * length]} castShadow>
-          <meshPhysicalMaterial />
+        <Box position={[2.15, 0.75, -(length * 2) + 2]} scale={[0.3, 1.5, 4 * length]}>
+          <meshBasicMaterial toneMapped={false} />
         </Box>
         {/* left wall */}
-        <Box
-          position={[-2.15, 0.75, -(length * 2) + 2]}
-          scale={[0.3, 1.5, 4 * length]}
-          receiveShadow
-        >
+        <Box position={[-2.15, 0.75, -(length * 2) + 2]} scale={[0.3, 1.5, 4 * length]}>
           <meshPhysicalMaterial />
         </Box>
         {/* wall at ending */}
-        <Box position={[0, 0.75, -(length * 4) + 2]} scale={[4, 1.5, 0.3]} receiveShadow>
+        <Box position={[0, 0.75, -(length * 4) + 2]} scale={[4, 1.5, 0.3]}>
           <meshPhysicalMaterial />
         </Box>
         <CuboidCollider
