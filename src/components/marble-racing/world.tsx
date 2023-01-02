@@ -7,6 +7,7 @@ import { UnrealBloomPass } from 'three-stdlib'
 
 import { Level } from './level'
 import { Marble } from './marble'
+import { Lights } from './lights'
 
 extend({ UnrealBloomPass })
 
@@ -15,7 +16,6 @@ export function World() {
     <>
       <Suspense fallback={null}>
         <color args={['black']} attach='background' />
-        <ambientLight />
 
         <Physics>
           <Marble />
@@ -23,6 +23,8 @@ export function World() {
 
           {/*<Debug />*/}
         </Physics>
+
+        <Lights />
       </Suspense>
     </>
   )

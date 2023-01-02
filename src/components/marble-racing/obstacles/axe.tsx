@@ -35,7 +35,7 @@ export function Axe({ position = [0, 0, 0] }: AxeProps) {
         friction={0}
       >
         <Box scale={[1.5, 1.5, 0.3]}>
-          <meshBasicMaterial toneMapped={false} />
+          <meshStandardMaterial roughness={1} metalness={0} color='#ff2442' />
         </Box>
       </RigidBody>
     </group>

@@ -30,7 +30,9 @@ export function Spinner({ position = [0, 0, 0] }: SpinnerProps) {
         restitution={0.2}
         friction={0}
       >
-        <Box scale={[3.5, 0.3, 0.3]} castShadow receiveShadow></Box>
+        <Box scale={[3.5, 0.3, 0.3]} castShadow receiveShadow>
+          <meshStandardMaterial color='#3df2ff' metalness={0} roughness={1} />
+        </Box>
       </RigidBody>
     </group>
   )

@@ -20,7 +20,7 @@ export default function MarbleRacing() {
     <>
       <KeyboardControls map={map}>
         <Canvas
-          //shadows
+          shadows
           camera={{
             fov: 45,
             near: 0.1,

@@ -5,9 +5,9 @@ import Layout from '@/components/layout'
 
 const games = [
   {
-    title: 'Game 1',
-    href: '/',
-    desc: 'Game 1 description'
+    title: 'Room 6',
+    href: '/game/room6',
+    desc: 'Room 6 description'
   },
   {
     title: 'Rushing Marble',

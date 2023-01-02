@@ -34,7 +34,7 @@ export function Limbo({ position = [0, 0, 0] }: LimboProps) {
         friction={0}
       >
         <Box scale={[3.5, 0.3, 0.3]} castShadow receiveShadow>
-          <meshStandardMaterial />
+          <meshStandardMaterial color='#ffb830' metalness={0} roughness={1} />
         </Box>
       </RigidBody>
     </group>
