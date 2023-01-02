@@ -1,5 +1,6 @@
 export { Bed } from './bed'
 export { Books } from './books'
+export { Bookshelves } from './bookshelves'
 export { Cabinet } from './cabinet'
 export { Desk } from './desk'
 export { Room } from './room'
