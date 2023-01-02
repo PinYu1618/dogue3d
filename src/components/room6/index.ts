@@ -1,3 +1,5 @@
 export { Bed } from './bed'
 export { Books } from './books'
 export { Desk } from './desk'
+export { Room } from './room'
+export { Mug } from './mug'
