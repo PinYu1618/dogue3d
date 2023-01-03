@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import Avatar from '@/components/avatar'
-import { useUser } from '@/stores/useUser'
+//import { useUser } from '@/stores/useUser'
 
 function Left() {
   return (
@@ -16,9 +16,10 @@ function Left() {
 }
 
 function Right() {
-  const user = useUser((state) => state.user)
+  //  const user = useUser((state) => state.user)
 
-  return <>{user ? <Avatar /> : null}</>
+  //  return <>{user ? <Avatar /> : null}</>
+  return null
 }
 
 type HeaderProps = {
