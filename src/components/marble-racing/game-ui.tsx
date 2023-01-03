@@ -25,7 +25,7 @@ function RestartButton() {
   )
 }
 
-export function Ui() {
+export function GameUi() {
   const time = useRef()
 
   const phase = useMarbleRacing((state) => state.phase)

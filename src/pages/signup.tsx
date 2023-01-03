@@ -1,13 +1,25 @@
+import { gql, useMutation } from '@apollo/client'
+import { useRouter } from 'next/router'
+import { FormEvent, useState } from 'react'
+
 import Button from '@/components/button'
 import { Form, Input, Label } from '@/components/form'
 import Layout from '@/components/layout'
-import { useUser } from '@/stores/useUser'
-import { useRouter } from 'next/router'
-import { FormEvent, useEffect, useState } from 'react'
+import { getErrorMessage } from '@/lib/get-error-msg'
+
+const SignupMutation = gql`
+  mutation SignupMutation($name: String!, $pswrd: String!) {
+    signup(input: { name: $name, pswrd: $pswrd }) {
+      user {
+        id
+        name
+      }
+    }
+  }
+`
 
 export default function SignupPage() {
-  const user = useUser((state) => state.user)
-  const signup = useUser((state) => state.signup)
+  const [signup] = useMutation(SignupMutation)
   const router = useRouter()
 
   const [userName, setUserName] = useState('')
@@ -23,14 +35,15 @@ export default function SignupPage() {
       alert('Password is required')
       return
     }
-    signup(userName, pswrd)
-  }
-
-  useEffect(() => {
-    if (user !== null) {
-      router.push(`/games`)
+    try {
+      await signup({
+        variables: { name: userName, pswrd }
+      })
+      router.push('/login')
+    } catch (error) {
+      alert(getErrorMessage(error))
     }
-  }, [user])
+  }
 
   return (
     <Layout>
