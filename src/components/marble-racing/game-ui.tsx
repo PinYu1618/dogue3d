@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { addEffect } from '@react-three/fiber'
 import { useKeyboardControls } from '@react-three/drei'
 
-import { useMarbleRacing } from '@/stores/useMarbleRacing'
+import { useMarbleRacing } from '@/hooks/use-marble'
 
 function Time() {
   return (

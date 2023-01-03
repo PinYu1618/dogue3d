@@ -1,10 +1,11 @@
-import { Form, Input, Label } from '@/components/form'
-import Layout from '@/components/layout'
-import { getErrorMessage } from '@/lib/get-error-msg'
 import { gql, useApolloClient, useMutation } from '@apollo/client'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
+
+import { Form, Input, Label } from '@/components/form'
+import Layout from '@/components/layout'
+import { getErrorMessage } from '@/lib/graphql'
 
 const LoginMutation = gql`
   mutation LoginMutation($name: String!, $pswrd: String!) {

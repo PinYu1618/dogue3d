@@ -1,8 +1,7 @@
 import { GraphQLError } from 'graphql'
 
 import { createUser, findUser, validatePassword } from '@/lib/user'
-import { getLoginSession, setLoginSession } from '@/lib/auth'
-import { removeTokenCookie } from '@/lib/auth'
+import { getLoginSession, removeTokenCookie, setLoginSession } from '@/lib/auth'
 
 export const resolvers = {
   Query: {

@@ -1,9 +1,10 @@
-import { useMarbleRacing } from '@/stores/useMarbleRacing'
 import { useKeyboardControls } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRapier, RigidBody, RigidBodyApi } from '@react-three/rapier'
 import { useEffect, useRef, useState } from 'react'
 import { Vector3 } from 'three'
+
+import { useMarbleRacing } from '@/hooks/use-marble'
 
 export enum Controls {
   forward = 'forward',

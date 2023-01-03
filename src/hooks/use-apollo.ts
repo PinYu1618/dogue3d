@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client'
 import { SchemaLink } from '@apollo/client/link/schema'
 import merge from 'deepmerge'
 
-import { schema } from './schema'
+import { schema } from '@/lib/graphql'
 
 let apolloClient: any
 

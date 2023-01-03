@@ -5,7 +5,7 @@ import { FormEvent, useState } from 'react'
 import Button from '@/components/button'
 import { Form, Input, Label } from '@/components/form'
 import Layout from '@/components/layout'
-import { getErrorMessage } from '@/lib/get-error-msg'
+import { getErrorMessage } from '@/lib/graphql'
 
 const SignupMutation = gql`
   mutation SignupMutation($name: String!, $pswrd: String!) {
