@@ -8,7 +8,7 @@ type UserModel = Model<User, {}>
 const userSchema = new Schema<User, UserModel>({
   id: { type: String, required: true },
   name: { type: String, required: true },
-  createdAt: { type: Number },
+  createdAt: { type: Number, required: true },
   hash: { type: String, required: true },
   salt: { type: String, required: true }
 })

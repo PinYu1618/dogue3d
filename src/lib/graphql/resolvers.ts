@@ -12,7 +12,12 @@ export const resolvers = {
         const session = await getLoginSession(context.req)
 
         if (session) {
-          return findUserByName(session.name)
+          const user = await findUserByName(session.name)
+          if (!user) {
+            return undefined
+          } else {
+            return { id: user.id, name: user.name, createdAt: user.createdAt }
+          }
         }
       } catch (error) {
         throw new GraphQLError('Authentication token is invalid, please log in', {
@@ -26,7 +31,11 @@ export const resolvers = {
   Mutation: {
     async signup(_parent: unknown, args: { input: SignupInput }, _context: GraphqlContext) {
       const user = await createUser(args.input.name, args.input.pswrd)
-      return { user }
+      if (!user) {
+        return undefined
+      } else {
+        return { id: user.id, name: user.name, createdAt: user.createdAt }
+      }
     },
     //@ts-ignore
     async login(_parent, args, context: GraphqlContext) {
@@ -42,7 +51,7 @@ export const resolvers = {
 
         await setLoginSession(context.res, session)
 
-        return { user }
+        return { id: user.id, name: user.name, createdAt: user.createdAt }
       }
 
       throw new GraphQLError('Invalid email and password combination')
