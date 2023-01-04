@@ -1,17 +1,18 @@
 import { GraphQLError } from 'graphql'
 
-import { createUser, findUser, validatePassword } from '@/lib/user'
+import { createUser, findUserByName, validatePassword } from '@/lib/user'
 import { getLoginSession, removeTokenCookie, setLoginSession } from '@/lib/auth'
+import { GraphqlContext } from '@/pages/api/graphql'
+import { SignupInput } from '@/interfaces'
 
 export const resolvers = {
   Query: {
-    //@ts-ignore
-    async me(_root, _args, context, _info) {
+    async me(_root: unknown, _args: any, context: GraphqlContext) {
       try {
         const session = await getLoginSession(context.req)
 
         if (session) {
-          return findUser({ name: session.name })
+          return findUserByName(session.name)
         }
       } catch (error) {
         throw new GraphQLError('Authentication token is invalid, please log in', {
@@ -23,18 +24,19 @@ export const resolvers = {
     }
   },
   Mutation: {
-    //@ts-ignore
-    async signup(_parent, args, _context, _info) {
-      const user = await createUser(args.input)
+    async signup(_parent: unknown, args: { input: SignupInput }, _context: GraphqlContext) {
+      const user = await createUser(args.input.name, args.input.pswrd)
       return { user }
     },
     //@ts-ignore
-    async login(_parent, args, context, _info) {
-      const user = await findUser({ name: args.input.name })
+    async login(_parent, args, context: GraphqlContext) {
+      const user = await findUserByName(args.input.name)
 
       if (user && (await validatePassword(user, args.input.pswrd))) {
         const session = {
+          //@ts-ignore
           id: user.id,
+          //@ts-ignore
           name: user.name
         }
 
@@ -45,8 +47,7 @@ export const resolvers = {
 
       throw new GraphQLError('Invalid email and password combination')
     },
-    //@ts-ignore
-    async logout(_parent, _args, context, _info) {
+    async logout(_parent: unknown, _args: {}, context: GraphqlContext) {
       removeTokenCookie(context.res)
       return true
     }

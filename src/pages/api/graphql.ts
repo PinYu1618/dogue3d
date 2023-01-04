@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { schema } from '@/lib/graphql'
 
-type GraphqlContext = {
+export type GraphqlContext = {
   req: NextApiRequest
   res: NextApiResponse
 }

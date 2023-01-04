@@ -3,9 +3,14 @@ export type User = {
   id: string
   name: string //帳號（註冊）
   pswrd: string //密碼（註冊）
-  marble: number //marble遊戲分數
-  racing: number //racing遊戲分數
-  loggedIn: boolean
+  createdAt: number
+  hash: string
+  salt: string
+}
+
+export type SignupInput = {
+  name: string
+  pswrd: string
 }
 
 //Marble存marble遊戲資料
