@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 
 import Card from '@/components/card'
 import Layout from '@/components/layout'
+import Link from 'next/link'
 
 const MeQuery = gql`
   query MeQuery {

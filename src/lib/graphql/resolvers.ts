@@ -30,7 +30,8 @@ export const resolvers = {
   },
   Mutation: {
     async signup(_parent: unknown, args: { input: SignupInput }, _context: GraphqlContext) {
-      return createUser(args.input.name, args.input.pswrd)
+      const user = await createUser(args.input.name, args.input.pswrd)
+      return { user }
     },
     //@ts-ignore
     async login(_parent, args, context: GraphqlContext) {
@@ -46,7 +47,7 @@ export const resolvers = {
 
         await setLoginSession(context.res, session)
 
-        return { id: user.id, name: user.name, createdAt: user.createdAt }
+        return { user: { id: user.id, name: user.name, createdAt: user.createdAt } }
       }
 
       throw new GraphQLError('Invalid email and password combination')

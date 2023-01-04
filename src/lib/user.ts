@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 const uri: string = process.env.MONGO_URL
 
+//@ts-ignore
 export async function createUser(name: string, pswrd: crypto.BinaryLike) {
   const salt = crypto.randomBytes(16).toString('hex')
   const hash = crypto.pbkdf2Sync(pswrd, salt, 1000, 64, 'sha512').toString('hex')
