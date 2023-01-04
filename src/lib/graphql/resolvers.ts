@@ -30,12 +30,7 @@ export const resolvers = {
   },
   Mutation: {
     async signup(_parent: unknown, args: { input: SignupInput }, _context: GraphqlContext) {
-      const user = await createUser(args.input.name, args.input.pswrd)
-      if (!user) {
-        return undefined
-      } else {
-        return { id: user.id, name: user.name, createdAt: user.createdAt }
-      }
+      return createUser(args.input.name, args.input.pswrd)
     },
     //@ts-ignore
     async login(_parent, args, context: GraphqlContext) {

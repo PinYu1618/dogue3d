@@ -27,7 +27,7 @@ export async function createUser(name: string, pswrd: crypto.BinaryLike) {
   try {
     await connect(uri)
     await new UserModel({ ...user }).save()
-    return user
+    return { id: user.id, name: user.name, createdAt: user.createdAt }
   } catch (e) {
     console.log(e)
   }
