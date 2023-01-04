@@ -5,17 +5,13 @@ export default function createModel<T, TModel = Model<T>>(
   schema: Schema<T>
 ): TModel {
   let createdModel: TModel
-  if (process.env.NODE_ENV === 'development') {
-    //@ts-ignore
-    if (!global[modelName]) {
-      createdModel = model<T, TModel>(modelName, schema)
-      //@ts-ignore
-      global[modelName] = createdModel
-    }
-    //@ts-ignore
-    createdModel = global[modelName]
-  } else {
+  //@ts-ignore
+  if (!global[modelName]) {
     createdModel = model<T, TModel>(modelName, schema)
+    //@ts-ignore
+    global[modelName] = createdModel
   }
+  //@ts-ignore
+  createdModel = global[modelName]
   return createdModel
 }
