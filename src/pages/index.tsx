@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 
 import Card from '@/components/card'
 import Layout from '@/components/layout'
@@ -14,9 +14,6 @@ const MeQuery = gql`
     }
   }
 `
-const divStyle = {
-  marginLeft: '5%'
-}
 
 const games = [
   {
@@ -65,17 +62,16 @@ export default function Index() {
         <div className='h-full container flex flex-col content-center justify-center'>
           <div className='m-auto'>
             <div id='game-list' className='flex'>
-              {games.map((game) => (
-                <>
+              {games.map((game, index) => (
+                <Fragment key={index}>
                   <Card
                     title={game.title}
                     href={game.href}
                     description={game.desc}
-                    key={game.title}
                     thumbnail={game.thumbnail}
                   />
-                  <div style={divStyle}></div>
-                </>
+                  <div className='ml-[5%]'></div>
+                </Fragment>
               ))}
             </div>
           </div>

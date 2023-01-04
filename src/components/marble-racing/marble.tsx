@@ -19,8 +19,8 @@ export function Marble() {
 
   const [_sub, get] = useKeyboardControls<Controls>()
   const jumpPressed = useKeyboardControls<Controls>((state) => state.jump)
-  const [blocks, phase, start, end, restart] = useMarbleRacing((state) => [
-    state.blocks,
+  const blocks = useMarbleRacing((state) => state.blocks)
+  const [phase, start, end, restart] = useMarbleRacing((state) => [
     state.phase,
     state.start,
     state.end,
@@ -55,8 +55,14 @@ export function Marble() {
   }
 
   useEffect(() => {
-    start()
-  }, [])
+    console.log(phase)
+  }, [phase])
+
+  useEffect(() => {
+    if (phase === 'ready') {
+      start()
+    }
+  }, [phase, start])
 
   useEffect(() => {
     if (jumpPressed) {

@@ -2,8 +2,8 @@ import { MeshReflectorMaterial, Plane, useTexture } from '@react-three/drei'
 
 export function Ground({ length = 1 }) {
   const [floor, normal] = useTexture([
-    '/textures/SurfaceImperfections003_1K_var1.jpg',
-    '/textures/SurfaceImperfections003_1K_Normal.jpg'
+    '/textures/marble-racing/SurfaceImperfections003_1K_var1.jpg',
+    '/textures/marble-racing/SurfaceImperfections003_1K_Normal.jpg'
   ])
 
   return (
