@@ -1,7 +1,5 @@
 import Link from 'next/link'
 
-const defaultThumbnail = '/dogue.jpg'
-
 type CardProps = {
   title: string
   href: string
@@ -9,12 +7,7 @@ type CardProps = {
   thumbnail?: string
 }
 
-export default function Card({
-  title,
-  href,
-  description,
-  thumbnail = defaultThumbnail
-}: CardProps) {
+export default function Card({ title, href, description, thumbnail }: CardProps) {
   return (
     <div className='w-64 h-72 rounded-lg shadow-md font-sans'>
       <Link href={href}>

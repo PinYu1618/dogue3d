@@ -54,7 +54,9 @@ export default function SignupPage() {
             <Input type='text' value={userName} onChange={(ev) => setUserName(ev.target.value)} />
             <Label text='Password' htmlFor='pswrd' />
             <Input type='password' value={pswrd} onChange={(ev) => setPswrd(ev.target.value)} />
-            <Button text='Sign up' type='submit' />
+            <button type='submit' className='bg-sky-300 rounded py-1 '>
+              Sign up
+            </button>
           </Form>
         </div>
       </div>

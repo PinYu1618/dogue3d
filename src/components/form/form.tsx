@@ -7,7 +7,7 @@ type FormProps = {
 
 export function Form({ title, onSubmit, children }: PropsWithChildren<FormProps>) {
   return (
-    <div className='min-w-fit max-w-md bg-teal-400 py-4 px-8'>
+    <div className='min-w-fit max-w-md bg-sky-200 py-5 px-9 rounded-lg'>
       <h2 className='text-2xl font-bold text-center'>{title}</h2>
       <div className=''>
         <div className='mt-8 max-w-md'>

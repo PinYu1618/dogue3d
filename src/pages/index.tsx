@@ -14,21 +14,28 @@ const MeQuery = gql`
     }
   }
 `
+const divStyle = {
+  marginLeft: '5%'
+}
 
 const games = [
   {
-    title: 'Room 6',
+    title: 'Room',
     href: '/game/room6',
-    desc: 'Room 6 description'
+    desc: 'Room description',
+    thumbnail: '/Room.jpg'
   },
   {
     title: 'Rushing Marble',
     href: '/game/marble',
-    desc: 'Rushing ball description'
+    desc: 'Control a marble to pass all the obstacles as soon as possible!',
+    thumbnail: '/Rushing Marble.jpg'
   },
   {
     title: 'Mini Car Racing',
-    href: '/game/racing'
+    href: '/game/racing',
+    desc: 'Conquer the road with your driving skill and leave others behind!',
+    thumbnail: '/Mini Car Racing.jpg'
   }
 ]
 
@@ -57,14 +64,18 @@ export default function Index() {
       <Layout>
         <div className='h-full container flex flex-col content-center justify-center'>
           <div className='m-auto'>
-            <div id='game-list' className=''>
+            <div id='game-list' className='flex'>
               {games.map((game) => (
-                <Card
-                  title={game.title}
-                  href={game.href}
-                  description={game.desc}
-                  key={game.title}
-                />
+                <>
+                  <Card
+                    title={game.title}
+                    href={game.href}
+                    description={game.desc}
+                    key={game.title}
+                    thumbnail={game.thumbnail}
+                  />
+                  <div style={divStyle}></div>
+                </>
               ))}
             </div>
           </div>

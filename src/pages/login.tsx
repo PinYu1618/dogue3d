@@ -69,7 +69,7 @@ export default function LoginPage() {
                 value={pswrd}
                 onChange={(e) => setPswrd(e.target.value)}
               />
-              <button type='submit' className='bg-green-50'>
+              <button type='submit' className='bg-sky-300 rounded py-1 '>
                 Submit
               </button>
               <Link href='/signup' className='mt-5 text-sm'>
