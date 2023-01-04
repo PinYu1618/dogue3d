@@ -12,7 +12,7 @@ export default function Layout({ home = false, children }: PropsWithChildren<Lay
   return (
     <div className='container mx-auto h-screen'>
       <div className='flex flex-col h-full justify-between'>
-        <Header />
+        <Header right={home ? true : false} />
         <Main>{children}</Main>
         <Footer />
       </div>

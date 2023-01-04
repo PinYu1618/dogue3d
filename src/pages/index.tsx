@@ -61,7 +61,7 @@ export default function Index() {
   }
   if (me) {
     return (
-      <Layout>
+      <Layout home>
         <div className='h-full container flex flex-col content-center justify-center'>
           <div className='m-auto'>
             <div id='game-list' className='flex'>
