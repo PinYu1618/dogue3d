@@ -3,6 +3,7 @@ import Router from 'next/router'
 import { useBeforeUnload } from 'react-use'
 
 export const useLeavePageConfirm = (
+  cb?: Function,
   isConfirm = true,
   message = 'Are you sure want to leave this page?'
 ) => {
@@ -12,6 +13,8 @@ export const useLeavePageConfirm = (
     const handler = () => {
       if (isConfirm && !window.confirm(message)) {
         throw 'Route Canceled'
+      } else {
+        cb && cb()
       }
     }
 
