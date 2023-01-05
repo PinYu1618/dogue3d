@@ -1,10 +1,11 @@
-import Layout from '@/components/layout'
 import { MarbleRacing } from '@/components/marble-racing'
-import { useStore } from '@/lib/store'
+import { useMarbleRacing } from '@/hooks/use-marble'
 
 export default function MarbleRacingPagge() {
   //const inGame = useStore((state) => state.inGame)
 
   //return inGame ? <MarbleRacing /> : <Layout></Layout>
-  return <MarbleRacing />
+  const blocks = useMarbleRacing((state) => state.blocks)
+
+  return <MarbleRacing blocks={blocks} />
 }

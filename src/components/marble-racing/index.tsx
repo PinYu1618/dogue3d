@@ -1,12 +1,18 @@
 import { KeyboardControls, KeyboardControlsEntry } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { useMemo } from 'react'
+import { Physics } from '@react-three/rapier'
+import { Suspense, useMemo } from 'react'
+
 import { GameUi } from './game-ui'
+import { Level } from './level'
+import { Lights } from './lights'
+import { Controls, Marble } from './marble'
 
-import { Controls } from './marble'
-import { World } from './world'
+type MarbleRacingProps = {
+  blocks?: number
+}
 
-export function MarbleRacing() {
+export function MarbleRacing({ blocks }: MarbleRacingProps) {
   const map = useMemo<KeyboardControlsEntry<Controls>[]>(
     () => [
       { name: Controls.forward, keys: ['ArrowUp', 'w', 'W'] },
@@ -30,7 +36,18 @@ export function MarbleRacing() {
             position: [2.5, 4, 6]
           }}
         >
-          <World />
+          <Suspense fallback={null}>
+            <color args={['black']} attach='background' />
+
+            <Physics>
+              <Marble />
+              <Level count={blocks} />
+
+              {/*<Debug />*/}
+            </Physics>
+
+            <Lights />
+          </Suspense>
         </Canvas>
         <GameUi />
       </KeyboardControls>

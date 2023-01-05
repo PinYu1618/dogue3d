@@ -1,5 +1,4 @@
-import { useEffect, useRef } from 'react'
-import { addEffect } from '@react-three/fiber'
+import { useRef } from 'react'
 import { useKeyboardControls } from '@react-three/drei'
 
 import { useMarbleRacing } from '@/hooks/use-marble'

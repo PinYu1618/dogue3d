@@ -34,7 +34,6 @@ export function Marble() {
 
   const jump = () => {
     if (marble.current) {
-      console.log('[player] Jumped!')
       const origin = marble.current.translation()
       origin.y -= 0.31
       const direction = { x: 0, y: -1, z: 0 }
@@ -47,7 +46,6 @@ export function Marble() {
 
   const reset = () => {
     if (marble.current) {
-      console.log('[player] Reseted!')
       marble.current.setTranslation({ x: 0, y: 1, z: 0 })
       marble.current.setLinvel({ x: 0, y: 0, z: 0 })
       marble.current.setAngvel({ x: 0, y: 0, z: 0 })
@@ -60,6 +58,7 @@ export function Marble() {
 
   useEffect(() => {
     if (phase === 'ready') {
+      reset()
       start()
     }
   }, [phase, start])
@@ -69,12 +68,6 @@ export function Marble() {
       jump()
     }
   }, [jumpPressed])
-
-  useEffect(() => {
-    if (phase === 'ready') {
-      reset()
-    }
-  }, [phase])
 
   useFrame((state, delta) => {
     if (marble.current) {
@@ -120,7 +113,7 @@ export function Marble() {
       state.camera.position.copy(smoothedCameraPosition)
       state.camera.lookAt(smoothedCameraTarget)
 
-      if (marblePosition.z < -(blocks * 4 + 2)) {
+      if (marblePosition.z < -(blocks * 4 + 2) && phase === 'playing') {
         end()
       }
       if (marblePosition.y < -4) {
