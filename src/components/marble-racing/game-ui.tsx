@@ -40,7 +40,7 @@ function RestartButton() {
 
   return (
     <div
-      className='absolute top-[40%] left-0 w-full flex justify-center pt-2.5 text-white text-[80px] cursor-pointers pointer-events-auto bg-[#00000033]'
+      className='absolute top-[40%] left-0 w-full flex justify-center pt-2.5 text-white text-[80px] cursor-pointer pointer-events-auto bg-[#00000033]'
       onClick={restart}
     >
       Restart
